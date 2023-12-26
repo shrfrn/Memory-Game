@@ -46,3 +46,21 @@ main {
 .matched {
     background-color: orange;
 }
+
+dialog {
+    border-radius: 20px;
+    border: none;
+    background-color: lightblue;
+}
+
+dialog::backdrop {
+    background-color: rgba(169, 169, 169, 0.856);
+}
+
+dialog button {
+    border-radius: 20px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background-color: orange;
+}

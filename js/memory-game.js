@@ -6,12 +6,18 @@ const state = {
 }
 
 function init() {
+    initState()
 	const nums = initNums()
     const strHtml = 
         nums.map(num => `
             <article class="card" onclick="onCardClick(this)"><div>${num}</div></article>`).join('')
 
     document.querySelector('main').innerHTML = strHtml
+}
+
+function initState() {
+    state.isClickable = true
+    state.paired = 0
 }
 
 function initNums() {
@@ -61,6 +67,17 @@ function updateStats() {
 
     elPaired.innerText = ++state.paired
     elRemaining.innerText = 10 - state.paired
+
+    if(state.paired === 10) {
+        const elDialog = document.querySelector('dialog')
+        elDialog.showModal()
+    }
+}
+
+function restart() {
+    const elDialog = document.querySelector('dialog')
+    elDialog.close()
+    init()
 }
 
 function getRandomInt(min, max) {
