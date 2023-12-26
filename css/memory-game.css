@@ -3,6 +3,15 @@ body {
     text-align: center;
 }
 
+header {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.paired {
+    margin-inline-end: 40px;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

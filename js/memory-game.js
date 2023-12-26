@@ -2,6 +2,7 @@
 
 const state = {
 	isClickable: true,
+    paired: 0,
 }
 
 function init() {
@@ -44,13 +45,22 @@ function onCardClick(elCard) {
 	if (elSelectedCard.innerText === elCard.innerText) {
 		elSelectedCards.forEach(elCard => elCard.classList.remove('selected'))
 		elSelectedCards.forEach(elCard => elCard.classList.add('matched'))
-		state.isClickable = true
+		updateStats()
+        state.isClickable = true
 	} else {
 		setTimeout(() => {
 			elSelectedCards.forEach(elCard => elCard.classList.remove('selected'))
 			state.isClickable = true
 		}, 2000)
 	}
+}
+
+function updateStats() {
+    const elPaired = document.querySelector('.paired')
+    const elRemaining = document.querySelector('.remaining')
+
+    elPaired.innerText = ++state.paired
+    elRemaining.innerText = 10 - state.paired
 }
 
 function getRandomInt(min, max) {
